@@ -34,7 +34,7 @@ public class UserDTO {
   private Instant onCreate;
   private Instant onUpdate;
 
-  public String getFullNamee() {
+  public String getFullName() {
     return firstName != null ? firstName.concat(" ").concat(lastName) : "";
   }
 }
