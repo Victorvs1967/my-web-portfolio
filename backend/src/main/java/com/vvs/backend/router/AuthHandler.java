@@ -30,15 +30,14 @@ public class AuthHandler {
       .body(user, UserDTO.class);
   }
 
-public Mono<ServerResponse> login(ServerRequest request) {
-
-  Mono<?> response = request.bodyToMono(UserDTO.class)
-    .flatMap(credentials -> authService.login(credentials.getEmail(), credentials.getPassword()).cast(ResponseDTO.class)
-    .map(userDetails -> userDetails.getData()));
-    
-  return ServerResponse
-    .ok()
-    .contentType(APPLICATION_JSON)
-    .body(response, ResponseDTO.class);
-}
+  public Mono<ServerResponse> login(ServerRequest request) {
+    Mono<?> response = request.bodyToMono(UserDTO.class)
+      .flatMap(credentials -> authService.login(credentials.getEmail(), credentials.getPassword()).cast(ResponseDTO.class)
+      .map(userDetails -> userDetails.getData()));
+      
+    return ServerResponse
+      .ok()
+      .contentType(APPLICATION_JSON)
+      .body(response, ResponseDTO.class);
+  }
 }

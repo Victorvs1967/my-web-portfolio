@@ -21,9 +21,7 @@ public class UserHandler {
   private JWTUtil jwtUtil;
 
   public Mono<ServerResponse> getUser(ServerRequest request) {
-
     String token = request.headers().firstHeader("authorization").substring(7);
-
     Mono<?> response = jwtUtil.getAllClaimsFromToken(token)
       .flatMap(credentials -> userService.getUser(credentials.getSubject()).cast(UserDTO.class)
       .map(userDetails -> userDetails));
