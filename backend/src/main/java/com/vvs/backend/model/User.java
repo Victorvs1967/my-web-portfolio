@@ -4,37 +4,40 @@ import java.time.Instant;
 import java.util.Collection;
 import java.util.Collections;
 
-import com.mongodb.lang.NonNull;
-
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
+import static com.vvs.backend.model.UserRole.USER;
+
 @Data
+@Builder
+@AllArgsConstructor
 @Document("users")
 public class User implements UserDetails {
   
   @Id
   private String id;
+  @Indexed(background = true, unique = true)
+  private String email;
+  private String password;
   private String firstName;
   private String lastName;
-  @NonNull
-  private String email;
-  @NonNull
-  private String password;
   private Instant onCreate;
   private Instant onUpdate;
   private boolean isActive = true;
+  private UserRole role = USER;
 
-  UserRole role = UserRole.USER;
-
-  User() {
-    this.onCreate = Instant.now();
-    this.onUpdate = this.onCreate;
+  public User() {
+    onCreate = Instant.now();
+    onUpdate = onCreate;
   }
 
   public void setOnUpdate() {

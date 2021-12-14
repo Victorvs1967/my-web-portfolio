@@ -2,7 +2,7 @@ package com.vvs.backend.router;
 
 import org.springframework.stereotype.Component;
 
-@Component
+// @Component
 public class UserHandler {
   
 }
