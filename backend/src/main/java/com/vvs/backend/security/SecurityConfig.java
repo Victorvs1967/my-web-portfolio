@@ -33,6 +33,8 @@ public class SecurityConfig {
     config.addAllowedHeader("*");
     config.addAllowedMethod("*");
 
+    source.registerCorsConfiguration("/**", config);
+
     return source;
   }
 
