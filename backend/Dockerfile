@@ -1,6 +1,6 @@
 FROM openjdk:17.0.1-slim-buster
 
-ADD . /app
+COPY . /app
 WORKDIR /app
 
 RUN ./mvnw clean package -DskipTests
