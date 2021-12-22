@@ -1,4 +1,5 @@
 version: "3.9"
+
 networks:
   frontend:
     external: false
@@ -6,6 +7,10 @@ networks:
   backend:
     external: false
     name: backend
+
+volumes:
+  mongo_store:
+
 services:
   mongo_db:
     networks:
@@ -34,6 +39,3 @@ services:
       - 4200:80
     depends_on:
       - api_service
-volumes:
-  mongo_store:
-
