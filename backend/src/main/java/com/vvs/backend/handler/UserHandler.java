@@ -1,4 +1,4 @@
-package com.vvs.backend.router;
+package com.vvs.backend.handler;
 
 import com.vvs.backend.dto.UserDTO;
 import com.vvs.backend.service.JWTUtil;

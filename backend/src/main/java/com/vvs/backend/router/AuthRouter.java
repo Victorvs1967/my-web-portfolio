@@ -7,6 +7,9 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
+
+import com.vvs.backend.handler.AuthHandler;
+
 import static org.springframework.http.MediaType.*;
 
 @Configuration

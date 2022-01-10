@@ -1,4 +1,4 @@
-package com.vvs.backend.router;
+package com.vvs.backend.handler;
 
 import com.vvs.backend.dto.ResponseDTO;
 import com.vvs.backend.dto.UserDTO;
