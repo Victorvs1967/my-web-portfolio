@@ -1,14 +1,12 @@
 package com.vvs.backend.error;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 
 @Getter
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum Error implements Serializable {
+public enum Error {
   
   WRONG_CREDENTIALS(1000, "Wrong credentials"),
   UN_AUTHORIZED(1001, "User is un-authorize to access this resource"),
